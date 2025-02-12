@@ -1,0 +1,102 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Poppins", serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for individual squares */
+.square {
+    width: 90%;
+    max-width: 50vw;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+/* Style for options squares */
+.opt {
+    width: 100%;
+    max-width: 50vw;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+.square:hover, .opt:hover {
+    transform: scale(1.05);
+}
+
+/* Style for images inside squares */
+.square img, .opt img {
+    border-radius: 10px;
+    max-height: 20vh;
+    object-fit: cover;
+}
+
+.square h3, .opt h3 {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+}
+
+.square p, .opt p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.hide {
+    display: none;
+}
+
+/* Mobile-specific styling (media query) */
+@media (max-width: 768px) {
+    body {
+        display: block;
+        padding: 10px;
+    }
+
+    .square, .opt {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px; /* Add space between squares */
+    }
+
+    .square img, .opt img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Adjust font size for mobile */
+    .square h3, .opt h3 {
+        font-size: 1rem;
+    }
+
+    .square p, .opt p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Optional: You can fine-tune more styles for smaller screens below */
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .square, .opt {
+        padding: 15px;
+    }
+}
