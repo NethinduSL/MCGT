@@ -1,12 +1,14 @@
 body {
+    background: url('bg.png') no-repeat center center fixed;
+    background-size: cover;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: "Poppins", serif;
+    font-family: "Poppins", sans-serif;
     background-color: #f0f0f0;
     padding: 20px;
     box-sizing: border-box;
@@ -14,31 +16,32 @@ body {
 
 /* Style for individual squares */
 .square {
-    width: 90%;
-    max-width: 50vw;
+    width: 100%;
+    max-width: 400px;
+    
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px);
     transition: transform 0.3s;
 }
 
-/* Style for options squares */
-.opt {
+.opt{
     width: 100%;
-    max-width: 50vw;
+    max-width: 450px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px);
     transition: transform 0.3s;
 }
+
 
 .square:hover, .opt:hover {
     transform: scale(1.05);
@@ -47,17 +50,19 @@ body {
 /* Style for images inside squares */
 .square img, .opt img {
     border-radius: 10px;
-    max-height: 20vh;
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
     object-fit: cover;
 }
 
 .square h3, .opt h3 {
     margin: 10px 0 0;
-    font-size: 1.2rem;
+    font-size: clamp(16px, 1.5vw, 22px);
 }
 
 .square p, .opt p {
-    font-size: 1rem;
+    font-size: clamp(12px, 1vw, 16px);
     color: #555;
 }
 
@@ -65,37 +70,34 @@ body {
     display: none;
 }
 
-/* Mobile-specific styling (media query) */
+/* Tablet-specific styling */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .square, .opt {
+        max-width: 400px;
+    }
+}
+
+/* Mobile-specific styling */
 @media (max-width: 768px) {
     body {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 10px;
     }
 
     .square, .opt {
-        width: 100%;
+        width: 90%;
         max-width: 100%;
-        margin-bottom: 20px; /* Add space between squares */
-    }
-
-    .square img, .opt img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Adjust font size for mobile */
-    .square h3, .opt h3 {
-        font-size: 1rem;
-    }
-
-    .square p, .opt p {
-        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 }
 
-/* Optional: You can fine-tune more styles for smaller screens below */
 @media (max-width: 480px) {
-    /* Further adjustments for very small screens */
     .square, .opt {
         padding: 15px;
     }
